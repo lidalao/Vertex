@@ -85,7 +85,7 @@ exports.deleteTorrent = async function (clientUrl, cookie, hash, isDeleteFiles) 
     }
   };
   const resPause = await util.requestPromise(messagePause);
-  logger.debug(clientUrl, '暂停种子', hash, '暂停种子文件: ', isDeleteFiles, '\n返回信息', { body: res.body, statusCode: res.statusCode });
+  logger.debug(clientUrl, '暂停种子', hash, '暂停种子文件: ', isDeleteFiles, '\n返回信息', { body: resPause.body, statusCode: resPause.statusCode });
 
   const message = {
     url: clientUrl + `/api/v2/torrents/delete?hashes=${hash}${isDeleteFiles ? '&deleteFiles=true' : '&deleteFiles=false'}`,
